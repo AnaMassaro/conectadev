@@ -8,7 +8,7 @@ function Header() {
           <span>Conecta dev</span>
         </div>
         <div>
-          <button>Novo Post</button>
+          <button>+ Post</button>
           <span>img1</span>
           <span>img2</span>
         </div>
