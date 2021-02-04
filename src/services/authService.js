@@ -30,8 +30,12 @@ class AuthService {
       })
       .catch (error => {
         reject(error)
-      })
-    })
+      });
+    });
+  };
+
+  signOut = () => {
+    this.removeToken();
   }
 
   setToken = (token) => {
@@ -40,6 +44,7 @@ class AuthService {
 
   getToken = () => localStorage.getItem("accessToken");
 
+  removeToken = () => localStorage.removeItem("accessToken")
   //Se o getUser retornar vazio, essa função retorna falso, se getUser retornar um valor (objeto), ele vai retornar true.
   isAuthenticated = () => !!this.getToken();
 }

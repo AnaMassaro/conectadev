@@ -4,7 +4,8 @@ mock.onPost('api/home/me').reply(200, {
   user: {
     'id': '1',
     'name': 'anamassaro',
-    'email': 'anamassaro@gmail.com'
+    'email': 'anamassaro@gmail.com',
+    'avatar': '/images/avatars/avatar_1.jpeg'
   }
 });
 
