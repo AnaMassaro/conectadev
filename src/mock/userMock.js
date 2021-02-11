@@ -3,7 +3,8 @@ import mock from '../utils/mock';
 mock.onPost('api/home/me').reply(200, {
   user: {
     'id': '1',
-    'name': 'anamassaro',
+    'name': 'Ana Massaro',
+    'username': 'anamassaro',
     'email': 'anamassaro@gmail.com',
     'avatar': '/images/avatars/avatar_1.jpeg'
   }
