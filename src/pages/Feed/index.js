@@ -1,53 +1,35 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import axios from '../../utils/axios';
 import PostCard from '../../components/PostCard';
 import NavBar from './NavBar';
 import Container from '@material-ui/core/Container';
+import Hidden from '@material-ui/core/Hidden';
 import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles(() => ({
-  root: {
-  }
+  root: {},
 }));
-
-const posts = [
-  {
-    id: 1,
-    autor: {
-      id: 1,
-      name: 'Lucas Nhimi',
-      username: 'lucasnhimi',
-      avatar: '/images/avatars/avatar_1.jpeg'
-    },
-    title: "Criando um app do zero utilizando react",
-    date: "April 7, 2020",
-    description: 'Fala pessoal! Qual o framework favorito de voces?',
-    hashtags: "#dotnet, #javascript, #reactjs, #developer",
-    image: "/images/posts/post9.jpeg"
-  },
-  {
-    id: 2,
-    autor: {
-      id: 1,
-      name: 'Lucas Nhimi',
-      username: 'lucasnhimi',
-      avatar: '/images/avatars/avatar_1.jpeg'
-    },
-    title: "Comparativo entre React e Vue - Performance",
-    date: "April 1, 2020",
-    description: 'Quero criar um bootcamp gratuito para passar um pouco da minha experiencia com voces!',
-    hashtags: "#framework, #javascript, #reactjs, #vue",
-    image: "/images/posts/post8.png"
-  },
-];
 
 function Feed() {
   const classes = useStyles();
+  const [posts, setPosts] = useState([]);
+
+  const getPosts = useCallback(async () => {
+    const feed = await axios.get('/api/feed');
+    setPosts(feed.data.posts);
+  }, [setPosts]);
+
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
 
   return (
     <Container maxWidth="lg">
       <Box display="flex">
-        <NavBar />
+        <Hidden smDown>
+          <NavBar />
+        </Hidden>
         <div className={classes.root}>
           {
             posts.map((post) =>(
