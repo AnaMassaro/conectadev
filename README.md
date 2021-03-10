@@ -2,8 +2,6 @@
 
 Online community for developer to share knowledge with each other.
 
-[Demo](https://vercel.com/anamassaro/conectadev-prod)
-
 [![License](https://img.shields.io/github/license/anamassaro/conectadev)](https://opensource.org/licenses/MIT)
 
 ## Table of Contents
